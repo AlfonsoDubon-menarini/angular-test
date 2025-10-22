@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>            
+        <meta charset="utf-8">
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Custom styles for this template -->
+    </head>
+    <body class="text-center">
+        <div class="col-lg-4 offset-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <main class="form-signin " style="max-width:100% ;">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="modal-header">
+                            <img style="height: 3.75em;" src="assets/img/favicon.ico" alt="Logo">
+                            <h5 class="modal-title" style="padding-right: 45%; font-size: 20px; font-weight:500;" id="exampleModalLabel">Ingreso</h5>
+                        </div>  
+                        <div class="form-floating my-3 px-1">
+                            <input style="background-color: #fbfbfb;" type="email" class="form-control px-3" id="floatingInput" placeholder="Usuario" formControlName="user">
+                            <label  for="floatingInput" class="px-3">Usuario</label>
+                        </div>
+                        <div class="form-floating mb-3 px-1">
+                            <input [type]=" showPassword ? 'text' : 'password' "  style="background-color: #fbfbfb;" type="password" class="form-control px-3" id="floatingPassword" placeholder="Password" formControlName="password">
+                            <label for="floatingPassword" class="px-3">Contraseña</label>
+                            <div>
+                                <label class="text-danger" id="warningFont" [hidden]="hideWrongCredentialsLbl">Credenciales Inválidas. Verifique usuario y/o contraseña</label>
+                            </div>
+                            <input class="pr-5" type="checkbox" (click)="showHidePassword()" title="Mostrar u ocultar el texto de la constraseña">  Mostrar contraseña
+                        </div>
+                       
+                        <button class="w-75 btn btn-lg btn-primary" style="background-color: #323232; border-color: #323232;" type="submit" [disabled]="!loginForm.valid" >Ingresar</button>
+                    </form>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </body>
+    <footer> 
+    </footer>
+</html>
+
+  
